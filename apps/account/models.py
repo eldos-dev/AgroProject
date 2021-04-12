@@ -59,7 +59,8 @@ class User(AbstractBaseUser):
         if User.objects.filter(activation_code=code).exists():
             self.create_activation_code()
         self.activation_code = code
-        self.save(update_fields='activation_code')
+        print(self.activation_code)
+        self.save(update_fields=['activation_code'])
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'

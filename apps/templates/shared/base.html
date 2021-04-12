@@ -119,10 +119,18 @@
 										<li>
 											<a href="contacts.html">Contacts</a>
 										</li>
-
+										{% if request.user.is_authenticated %}
 										<li class="li-btn">
-											<a class="custom-btn custom-btn--small custom-btn--style-4" href="#">Регистрация</a>
+											<a class="custom-btn custom-btn--small custom-btn--style-4" href="{% url 'logout' %}">Выйти</a>
 										</li>
+										{% else %}
+										<li class="li-btn">
+											<a class="custom-btn custom-btn--small custom-btn--style-4" href="{% url 'login' %}">Войти</a>
+										</li>
+										<li class="li-btn">
+											<a class="custom-btn custom-btn--small custom-btn--style-4" href="{% url 'registration' %}">Регистрация</a>
+										</li>
+										{% endif %}
 									</ul>
 								</nav>
 							</div>

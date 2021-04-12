@@ -1,6 +1,6 @@
 {% extends 'shared/base_account.html' %}
 {% load static %}
-{% block title %}Регистрация пользователя{% endblock %}
+{% block title %}Вход{% endblock %}
 
 {% block content %}
 
@@ -9,7 +9,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-12 col-md-7">
-							<h2 class="__title"><span>Agro</span> Регистрация</h2>
+							<h2 class="__title"><span>Agro</span> Вход</h2>
 
 							<p>
 								The point of using is that it has a more-or-less normal distribution of letters, as opposed to using Content here content here making it look
@@ -85,21 +85,13 @@
 						<div class="row">
 
 							<div class="col-12 col-md-6 col-lg-5 col-xl-8 offset-lg-1 offset-xl-2">
-								<h2>Sign <span>Up</span></h2>
+								<h2>Sign <span>in</span></h2>
 
 								<!-- start form -->
 								<form method="POST" class="auth-form">
 									{% csrf_token %}
+									{{ form.errors }}
 									<div class="input-wrp">
-										<input name="first_name" class="textfield" type="text" placeholder="Имя *" />
-									</div>
-
-									<div class="input-wrp">
-										<input name="last_name" class="textfield" type="text" placeholder="Фамилия *" />
-									</div>
-
-									<div class="input-wrp">
-										{{ form.email.errors }}
 										<input name="email" class="textfield" type="email" placeholder="Email *" />
 									</div>
 
@@ -107,18 +99,32 @@
 										<input name="password" class="textfield" type="password" placeholder="Пароль" />
 									</div>
 
-									<div class="input-wrp">
-										<input name="password_confirmation" class="textfield" type="password" placeholder="Подтвердите пароль" />
+									<div class="row align-items-center justify-content-between">
+										<div class="col-auto">
+											<label class="checkfield align-bottom">
+												<input type="checkbox" checked="">
+												<i></i>
+												Запомнить меня
+											</label>
+										</div>
+
+										<div class="col-auto">
+											<a class="link-forgot" href="#">Забыли пароль?</a>
+										</div>
 									</div>
 
 									<div class="d-table mt-8">
 										<div class="d-table-cell align-middle">
-											<button type="submit" class="custom-btn custom-btn--medium custom-btn--style-1" >Sign up</button>
+											<button class="custom-btn custom-btn--medium custom-btn--style-1" type="submit">Войти</button>
 										</div>
 									</div>
 								</form>
 								<!-- end form -->
+
+								<div class="spacer py-6 d-md-none"></div>
+
 							</div>
+
 						</div>
 					</div>
 				</section>

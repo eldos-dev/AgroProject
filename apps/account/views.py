@@ -5,7 +5,7 @@ from django.views.generic import CreateView
 from django.views.generic.base import View
 from django.urls import reverse_lazy
 
-from apps.account.forms import RegistrationForm
+from apps.account.forms import RegistrationForm, SignInForm
 
 User = get_user_model()
 
@@ -45,5 +45,6 @@ class SignInView(LoginView):
 
     """ Авторизация пользователя """
 
+    form_class = SignInForm
     template_name = 'account/login.html'
     success_url = reverse_lazy('index')
